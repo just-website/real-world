@@ -1,4 +1,52 @@
-<div class="container">
-
+<div class="tui-container tui-container_adaptive">
+	<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="tui-row">
+		<div class="tui-col_xs-12 tui-col_md-12 tui-col_lg-8 tui-col-offset_lg-2">
+			<h3 class="tui-form__header tui-form__header_margin-top_none">
+				Sign up
+			</h3>
+			<a href="/login/">Have an account?</a>
+			<div class="tui-form__row">
+				<tui-input
+					formControlName="username"
+				>
+					Username<span class="tui-required"></span>
+				</tui-input>
+				<tui-field-error
+					formControlName="username"
+				></tui-field-error>
+			</div>
+			<div class="tui-form__row">
+				<tui-input
+					formControlName="email"
+				>
+					Email<span class="tui-required"></span>
+				</tui-input>
+				<tui-field-error
+					formControlName="email"
+				></tui-field-error>
+			</div>
+			<div class="tui-form__row">
+				<tui-input
+					formControlName="password"
+				>
+					Password<span class="tui-required"></span>
+				</tui-input>
+				<tui-field-error
+					formControlName="password"
+				></tui-field-error>
+			</div>
+			<div class="tui-form__buttons">
+				<button
+					tuiButton
+					class="tui-form__button"
+					size="l"
+					type="submit"
+					[disabled]="registerForm.invalid || registerForm.untouched"
+				>
+					Submit
+				</button>
+			</div>
+		</div>
+	</form>
 </div>
 
