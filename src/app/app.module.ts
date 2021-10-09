@@ -1,13 +1,15 @@
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {TuiRootModule, TuiDialogModule, TuiNotificationsModule} from "@taiga-ui/core";
+import {TuiDialogModule, TuiNotificationsModule, TuiRootModule} from "@taiga-ui/core";
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {TuiActionModule} from "@taiga-ui/kit";
-import {StoreModule} from '@ngrx/store';
-import {AuthModule} from "./auth/auth.module";
+import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store';
+import { AuthModule } from "./auth/auth.module";
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { environment } from "src/environments/environment";
+import {EffectsModule} from "@ngrx/effects";
 
 @NgModule({
 	declarations: [
@@ -20,8 +22,13 @@ import {AuthModule} from "./auth/auth.module";
 		BrowserAnimationsModule,
 		TuiDialogModule,
 		TuiNotificationsModule,
+		EffectsModule.forRoot([]),
 		StoreModule.forRoot({}, {}),
-
+		StoreDevtoolsModule.instrument({
+			maxAge: 25,
+			logOnly: environment.production,
+			autoPause: true
+		}),
 		AuthModule
 	],
 	providers: [],

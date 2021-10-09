@@ -5,6 +5,9 @@
 				Sign up
 			</h3>
 			<a href="/login/">Have an account?</a>
+			<ng-container *ngIf="backendErrors$ | async as backendErrors">
+				<rw-backend-error-messages [backendErrors]="backendErrors"></rw-backend-error-messages>
+			</ng-container>
 			<div class="tui-form__row">
 				<tui-input
 					formControlName="username"
