@@ -1,6 +1,5 @@
 import { Inject, Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { registerAction, registerErrorAction, registerSuccessAction } from "../actions/register.action";
 import { catchError, exhaustMap, map, tap } from "rxjs/operators";
 import { AuthService } from "../../services/auth.service";
 import { of } from "rxjs";
@@ -8,18 +7,19 @@ import { HttpErrorResponse } from "@angular/common/http";
 import { PersistenceService } from "../../../common/services/persistence.service";
 import { Router } from "@angular/router";
 import { ACCESS_TOKEN_KEY } from "../../auth.module";
+import { loginAction, loginErrorAction, loginSuccessAction } from "../actions/login.action";
 
 @Injectable()
-export class RegisterEffect {
+export class LoginEffect {
 
-	register$ = createEffect(() => {
+	login$ = createEffect(() => {
 		return this.$actions.pipe(
-			ofType(registerAction),
-			exhaustMap((action) => this.authService.register(action.profile).pipe(
+			ofType(loginAction),
+			exhaustMap((action) => this.authService.login(action.profile).pipe(
 					tap((user) => this.persistenceService.set(this.accessTokenKey, user.token)),
-					map((user) => registerSuccessAction({user})),
+					map((user) => loginSuccessAction({ user })),
 					catchError((error: HttpErrorResponse) => {
-						return of(registerErrorAction({ error: error.error.errors }))
+						return of(loginErrorAction({ error: error.error.errors }))
 					})
 				)
 			)
@@ -28,7 +28,7 @@ export class RegisterEffect {
 
 	redirectAfterSubmit$ = createEffect(() => {
 		return this.$actions.pipe(
-			ofType(registerSuccessAction),
+			ofType(loginSuccessAction),
 			tap(() => this.router.navigateByUrl('/'))
 		)
 	}, { dispatch: false })

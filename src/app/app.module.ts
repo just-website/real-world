@@ -1,5 +1,5 @@
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {TuiDialogModule, TuiNotificationsModule, TuiRootModule} from "@taiga-ui/core";
+import { TuiDialogModule, TuiLoaderModule, TuiNotificationsModule, TuiRootModule } from "@taiga-ui/core";
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
@@ -10,10 +10,11 @@ import { AuthModule } from "./auth/auth.module";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { environment } from "src/environments/environment";
 import {EffectsModule} from "@ngrx/effects";
+import { TopNavBarModule } from "./common/modules/top-nav-bar/top-nav-bar.module";
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -29,7 +30,8 @@ import {EffectsModule} from "@ngrx/effects";
 			logOnly: environment.production,
 			autoPause: true
 		}),
-		AuthModule
+		AuthModule,
+		TopNavBarModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

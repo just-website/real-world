@@ -5,25 +5,15 @@
 	[size]="'xxl'"
 >
 	<div class="tui-container tui-container_adaptive">
-		<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="tui-row">
+		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="tui-row">
 			<div class="tui-col_xs-12 tui-col_md-12 tui-col_lg-8 tui-col-offset_lg-2">
 				<h3 class="tui-form__header tui-form__header_margin-top_none">
-					Sign up
+					Log in
 				</h3>
-				<a routerLink="/login">Have an account?</a>
+				<a routerLink="/register">Need an account?</a>
 				<ng-container *ngIf="backendErrors$ | async as backendErrors">
 					<rw-backend-error-messages [backendErrors]="backendErrors"></rw-backend-error-messages>
 				</ng-container>
-				<div class="tui-form__row">
-					<tui-input
-						formControlName="username"
-					>
-						Username<span class="tui-required"></span>
-					</tui-input>
-					<tui-field-error
-						formControlName="username"
-					></tui-field-error>
-				</div>
 				<div class="tui-form__row">
 					<tui-input
 						formControlName="email"
@@ -50,7 +40,7 @@
 						class="tui-form__button"
 						size="l"
 						type="submit"
-						[disabled]="registerForm.invalid || registerForm.untouched"
+						[disabled]="loginForm.invalid || loginForm.untouched || (isSubmitting$ | async)!"
 					>
 						Submit
 					</button>

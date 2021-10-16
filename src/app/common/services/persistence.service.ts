@@ -18,7 +18,7 @@ export class PersistenceService {
 
 	get(key: string): any {
 		try {
-			this.localStorage.getItem(key);
+			return this.localStorage.getItem(key);
 		} catch (error) {
 			console.log('Error of set data to locale storage', error)
 		}

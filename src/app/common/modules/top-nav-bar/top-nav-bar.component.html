@@ -1,0 +1,56 @@
+<div class="tui-container tui-container_adaptive nav-bar">
+	<a routerLink="/" class="nav-bar__logo tui-text_h5">
+		conduit
+	</a>
+	<nav class="nav-bar__menu">
+		<ul class="menu-list tui-text_body-m" *tuiLet="currentUser$ | async as currentUser">
+			<ng-container  *ngIf="currentUser; else auth">
+				<li class="menu-list__item">
+					<a tuiLink mode="positive" routerLink="/" >
+						Home
+					</a>
+				</li>
+				<li class="menu-list__item">
+					<a tuiLink mode="positive" [routerLink]="['/article', 'new']" icon="tuiIconEdit" iconAlign="left">
+						New article
+					</a>
+				</li>
+				<li  class="menu-list__item">
+					<a tuiLink routerLink="/settings" icon="tuiIconSettings" iconAlign="left" mode="positive">
+						Settings
+					</a>
+				</li>
+				<li class="menu-list__item">
+					<tui-loader
+						class="inline-flex tui-space_right-2"
+						[showLoader]="!(currentUser$ | async)?.username || false"
+						[overlay]="true"
+						[size]="'s'"
+					>
+						<a tuiLink mode="positive" [routerLink]="['/profile']" icon="tuiIconUser" iconAlign="left">
+							{{ (currentUser$ | async)?.username }}
+						</a>
+					</tui-loader>
+				</li>
+			</ng-container>
+		</ul>
+	</nav>
+</div>
+
+<ng-template #auth>
+	<li class="menu-list__item">
+		<a tuiLink mode="positive" routerLink="/" >
+			Home
+		</a>
+	</li>
+	<li class="menu-list__item">
+		<a tuiLink mode="positive" routerLink="/login" >
+			Sign in
+		</a>
+	</li>
+	<li class="menu-list__item">
+		<a tuiLink mode="positive" routerLink="/register" >
+			Sign up
+		</a>
+	</li>
+</ng-template>
