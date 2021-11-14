@@ -1,4 +1,4 @@
-import { AuthStateInterface } from "../../types/auth-state.interface";
+import { AuthStateInterface } from "../types/auth-state.interface";
 import { Action, createReducer, on } from "@ngrx/store";
 import { registerAction, registerErrorAction, registerSuccessAction } from "../actions/register.action";
 import { loginAction, loginErrorAction, loginSuccessAction } from "../actions/login.action";

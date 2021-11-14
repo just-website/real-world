@@ -1,0 +1,58 @@
+$button-color: #5CB85C;
+
+.article {
+
+	&__header {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+	}
+
+	&__author {
+		color: var(--tui-support-03);
+		line-height: 17px;
+	}
+
+	&__date {
+		line-height: 15px;
+		color: var(--tui-text-03);
+	}
+
+	&__content {
+		h4 {
+			margin-bottom: 0;
+		}
+
+		p, a {
+			color: var(--tui-text-03);
+		}
+	}
+
+	&__favorites {
+		::ng-deep {
+			tui-wrapper[data-appearance='custom'] {
+				background-color: $button-color;
+				color: var(--tui-text-01-night);
+
+				&[data-state='hovered'] {
+					background-color: rgba($button-color, .9);
+				}
+
+				&[data-state='pressed'] {
+					background-color: rgba($button-color, .75);
+				}
+
+				&[data-state='disabled'] {
+					background-color: rgba($button-color, .5);
+				}
+			}
+		}
+	}
+}

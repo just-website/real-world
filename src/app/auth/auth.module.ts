@@ -6,7 +6,7 @@ import { TuiFieldErrorModule, TuiInputModule } from "@taiga-ui/kit";
 import { ReactiveFormsModule } from "@angular/forms";
 import { TuiButtonModule, TuiLoaderModule } from "@taiga-ui/core";
 import { StoreModule } from "@ngrx/store";
-import * as authReducer from "./store/reducers/auth.reducers";
+import * as authReducer from "./store/reducers/auth.reducer";
 import { AuthService } from "./services/auth.service";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { EffectsModule } from "@ngrx/effects";
@@ -70,7 +70,7 @@ const routes: Routes = [
 		PersistenceService,
 		{
 			provide: ACCESS_TOKEN_KEY,
-			useValue: GlobalConstantsClass.accessToken
+			useValue: GlobalConstantsClass.accessTokenKey
 		},
 		{
 			provide: HTTP_INTERCEPTORS,

@@ -1,0 +1,45 @@
+<div class="article tui-space_vertical-4">
+	<div class="article__header">
+		<div class="article__info">
+			<div class="article__avatar tui-space_right-2">
+				<tui-avatar
+					[text]="article.author.username"
+					[avatarUrl]="article.author.image"
+					[rounded]="true"
+					size="s"
+				></tui-avatar>
+			</div>
+			<div>
+				<a tuiLink class="article__author tui-text_body-m" [routerLink]="['/profiles/', article.author.username ]" >
+					{{ article.author.username }}
+				</a>
+				<div class="article__date">
+					{{ article.updatedAt | date:'longDate' }}
+				</div>
+			</div>
+		</div>
+		<div class="article__favorites">
+			<button
+				tuiButton
+				type="button"
+				[icon]="article.favorited ? 'tuiIconHeartFilled' : 'tuiIconHeart'"
+				size="s"
+				appearance="custom"
+				(click)="onFavorited($event)"
+			>
+				{{ article.favoritesCount }}
+			</button>
+		</div>
+	</div>
+	<div class="article__content tui-space_top-2">
+		<h4 class="tui-text_h4 tui-space_top-4">
+			{{ article.title }}
+		</h4>
+		<p class="tui-text_body-l-2">
+			{{ article.description }}
+		</p>
+		<a tuiLink class="tui-space_top-2" [routerLink]="['/articles/', article.slug ]" >
+			Read more...
+		</a>
+	</div>
+</div>

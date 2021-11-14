@@ -1,5 +1,7 @@
 export class GlobalConstantsClass {
-	public static accessToken: string = 'accessToken';
+	public static accessTokenKey = 'accessToken';
+	public static articlesPerPage = 10;
+	public static pageQueryParamsKey = 'page';
 }
 
 export class ApiUrlClass {

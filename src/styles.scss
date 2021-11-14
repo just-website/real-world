@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.box-inner-shadow {
+	box-shadow: inset 0 8px 8px -8px rgb(0 0 0 / 30%), inset 0 -8px 8px -8px rgb(0 0 0 / 30%);
+}
+
+.divider {
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px solid var(--tui-base-04);
+	box-sizing: border-box;
+}

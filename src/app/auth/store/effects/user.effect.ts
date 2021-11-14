@@ -17,7 +17,6 @@ export class UserEffect {
 			exhaustMap((action) => {
 				const currentAccessToken = this.persistenceService.get(this.accessTokenKey);
 				if(!currentAccessToken) {
-					console.log('currentAccessToken',this.accessTokenKey, currentAccessToken)
 					return of(getCurrentUserErrorAction())
 				}
 				return this.authService.getCurrentUser().pipe(
