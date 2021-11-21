@@ -35,6 +35,11 @@ $button-color: #5CB85C;
 		}
 	}
 
+	&__footer {
+		display: flex;
+		justify-content: space-between;
+	}
+
 	&__favorites {
 		::ng-deep {
 			tui-wrapper[data-appearance='custom'] {

@@ -12,6 +12,7 @@ import { TuiLetModule } from "@taiga-ui/cdk";
 import { TuiAvatarModule } from "@taiga-ui/kit";
 import { RouterModule } from "@angular/router";
 import { PaginationModule } from "../pagination/pagination.module";
+import { TagListModule } from "../tag-list/tag-list.module";
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { PaginationModule } from "../pagination/pagination.module";
 		RouterModule,
 		TuiLinkModule,
 		PaginationModule,
+		TagListModule,
 		StoreModule.forFeature(articlesReducer.featureKey, articlesReducer.reducer),
 		EffectsModule.forFeature([ArticlesEffect]),
 	],

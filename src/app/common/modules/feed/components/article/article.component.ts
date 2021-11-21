@@ -18,4 +18,8 @@ export class ArticleComponent implements OnInit {
 	onFavorited($event: MouseEvent) {
 
 	}
+
+	onTagClick(tag: string) {
+		console.log('tag click', tag)
+	}
 }

@@ -1,0 +1,11 @@
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+
+	&__item {
+		cursor: pointer;
+		&:not(:last-child) {
+			margin-right: 4px;
+		}
+	}
+}

@@ -38,8 +38,11 @@
 		<p class="tui-text_body-l-2">
 			{{ article.description }}
 		</p>
-		<a tuiLink class="tui-space_top-2" [routerLink]="['/articles/', article.slug ]" >
-			Read more...
-		</a>
+		<div class="article__footer">
+			<a tuiLink class="tui-space_top-2" [routerLink]="['/articles/', article.slug ]" >
+				Read more...
+			</a>
+			<rw-tag-list [tagList]="article.tagList" (tagClick)="onTagClick($event)"></rw-tag-list>
+		</div>
 	</div>
 </div>

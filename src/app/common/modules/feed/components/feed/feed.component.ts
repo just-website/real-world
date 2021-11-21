@@ -19,10 +19,10 @@ export class FeedComponent implements OnInit {
 
 	currentPageIndex$: Observable<number>;
 	pageCount$: Observable<number>;
-	@Input() feedUrl: string = '';
-
 	articles$: Observable<ArticleResponseInterface | null>;
 	isSubmitting$: Observable<boolean>;
+
+	@Input() feedUrl: string = '';
 
 	constructor(
 		private store: Store<AppStateInterface>,

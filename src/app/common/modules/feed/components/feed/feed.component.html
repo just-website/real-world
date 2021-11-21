@@ -10,7 +10,7 @@
 		</div>
 		<ng-container *tuiLet="pageCount$ | async as pageCount">
 			<rw-pagination
-				*ngIf="pageCount"
+				*ngIf="pageCount && pageCount > 1"
 				[pageCount]="pageCount!"
 				[currentPage]="(currentPageIndex$ | async)!"
 				(indexChange)="onIndexChange($event)"

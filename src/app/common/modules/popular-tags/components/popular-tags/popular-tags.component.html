@@ -1,0 +1,10 @@
+<div class="popular-tags" *tuiLet="(tagList$ | async) as tagList">
+	<h3 class="popular-tags__header">Popular tags:</h3>
+		<tui-loader
+			[showLoader]="(isSubmitting$ | async) || false"
+			[overlay]="true"
+			[size]="'m'"
+		>
+		<rw-tag-list *ngIf="tagList" [tagList]="tagList"></rw-tag-list>
+	</tui-loader>
+</div>

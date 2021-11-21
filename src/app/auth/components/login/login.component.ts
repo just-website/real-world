@@ -7,7 +7,6 @@ import { AppStateInterface } from "../../../common/types/app-state.interface";
 import { backendErrorsSelector, submittingSelector } from "../../store/selectors/auth.selector";
 import { RegisterRequestInterface } from "../../types/register-request.interface";
 import { loginAction } from "../../store/actions/login.action";
-import { TuiSizeXXL } from "@taiga-ui/core/types/size";
 
 @Component({
 	selector: 'rw-login',

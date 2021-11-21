@@ -1,0 +1,5 @@
+<ul class="tag-list">
+	<li *ngFor="let tag of tagList" class="tag-list__item">
+		<tui-tag [hoverable]="true" [size]="size" [value]="tag" (click)="onTagClick(tag)"></tui-tag>
+	</li>
+</ul>
