@@ -1,0 +1,5 @@
+<tui-tabs>
+	<a tuiTab routerLink='/' routerLinkActive>Global feed</a>
+	<a *ngIf="isLoggedIn$ | async" tuiTab routerLink='/feed' routerLinkActive>Your feed</a>
+	<a *ngIf="tagName" tuiTab [routerLink]="['/feed', '{{tagName}}']" routerLinkActive>#{{ tagName }}</a>
+</tui-tabs>

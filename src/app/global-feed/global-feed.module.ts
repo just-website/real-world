@@ -5,6 +5,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { FeedModule } from "../common/modules/feed/feed.module";
 import { BannerModule } from "../common/modules/banner/banner.module";
 import { PopularTagsModule } from "../common/modules/popular-tags/popular-tags.module";
+import { FeedToggleModule } from "../common/modules/feed-toggle/feed-toggle.module";
 
 const routes: Routes = [
 	{
@@ -22,6 +23,7 @@ const routes: Routes = [
 		FeedModule,
 		BannerModule,
 		PopularTagsModule,
+		FeedToggleModule,
 		RouterModule.forChild(routes)
 	]
 })
