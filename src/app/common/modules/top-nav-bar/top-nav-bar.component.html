@@ -3,7 +3,7 @@
 		conduit
 	</a>
 	<nav class="nav-bar__menu">
-		<ul class="menu-list tui-text_body-m" *tuiLet="currentUser$ | async as currentUser">
+		<ul class="menu-list tui-text_body-m" *tuiLet="(currentUser$ | async)! as currentUser">
 			<ng-container  *ngIf="currentUser; else auth">
 				<li class="menu-list__item">
 					<a tuiLink mode="positive" routerLink="/" >
@@ -23,12 +23,12 @@
 				<li class="menu-list__item">
 					<tui-loader
 						class="inline-flex tui-space_right-2"
-						[showLoader]="!(currentUser$ | async)?.username || false"
+						[showLoader]="!currentUser?.username || false"
 						[overlay]="true"
 						[size]="'s'"
 					>
 						<a tuiLink mode="positive" [routerLink]="['/profile']" icon="tuiIconUser" iconAlign="left">
-							{{ (currentUser$ | async)?.username }}
+							{{ currentUser?.username }}
 						</a>
 					</tui-loader>
 				</li>

@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { getPopularTagsAction } from "../../store/actions/popular-tag.action";
 import { popularTagsListSelector, popularTagsSubmittingSelector } from "../../store/selectors/popular-tags.selector";
 import { PopularTag } from "../../../../types/popular-tags.interface";
+import { map } from "rxjs/operators";
 
 @Component({
 	selector: 'rw-popular-tags',

@@ -1,10 +1,16 @@
-<div class="popular-tags" *tuiLet="(tagList$ | async) as tagList">
+<div class="popular-tags" *tuiLet="(tagList$ | async)! as tagList">
 	<h3 class="popular-tags__header">Popular tags:</h3>
 		<tui-loader
-			[showLoader]="(isSubmitting$ | async) || false"
+			[showLoader]="(isSubmitting$ | async)!"
 			[overlay]="true"
 			[size]="'m'"
 		>
-		<rw-tag-list *ngIf="tagList" [tagList]="tagList"></rw-tag-list>
+		<rw-tag-list *ngIf="tagList?.length; else emptyTagList" [tagList]="tagList"></rw-tag-list>
 	</tui-loader>
 </div>
+
+<ng-template #emptyTagList>
+	<p *ngIf="!(isSubmitting$ | async)">
+		No tags are here... yet.
+	</p>
+</ng-template>
